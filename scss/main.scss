@@ -219,7 +219,6 @@ body {
 // Languages
 @include bem('profile', 'languages') {
   padding: 0 2rem 1.5rem 0rem;
-
   ul {
     list-style: none;
 
@@ -227,14 +226,24 @@ body {
       display: flex;
       align-items: center;
       margin-bottom: 0.5rem;
+      color: var(--color-text);
+      font-size: 1rem;
+      transition: color 0.3s ease;
 
       .profile__flag {
         width: 24px;
         height: 16px;
         margin-right: 0.5rem;
-        background: var(--color-border);
         display: inline-block;
-        transition: background-color 0.3s ease;
+        border-radius: 2px;
+        object-fit: cover;
+        transition: opacity 0.3s ease;
+        
+        // Ensure visibility in both light and dark modes
+        filter: brightness(1) contrast(1);
+        
+        // Add subtle border for better definition
+        border: 1px solid var(--color-border);
       }
 
       .profile__lang-level {
@@ -335,103 +344,163 @@ body {
   list-style: none;
   margin-bottom: 2rem;
   position: relative;
-  padding-left: 2rem;
+  padding-left: 4rem;
 
   // Timeline line
   &::before {
     content: '';
     position: absolute;
-    left: 1rem;
-    top: 2rem;
-    bottom: 2rem;
+    left: 2.5rem;
+    top: 3rem;
+    bottom: 0;
     width: 2px;
     background: var(--color-border);
     transition: background-color 0.3s ease;
   }
 
   @media (max-width: 768px) {
-    padding-left: 1.5rem;
+    padding-left: 3rem;
     
     &::before {
-      left: 0.75rem;
+      left: 1.75rem;
+      top: 2.5rem;
     }
   }
 }
 
 @include bem('profile', 'experience-item') {
-  background: var(--color-card-bg);
-  border-radius: 12px;
-  padding: 1rem 1.2rem;
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
   position: relative;
-  transition: background-color 0.3s ease;
+  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: start;
 
   // Timeline dot
   &::before {
     content: '';
     position: absolute;
-    left: -1.5rem;
-    top: 1.5rem;
+    left: -1.75rem;
+    top: 0.5rem;
     width: 12px;
     height: 12px;
     background: var(--color-primary);
     border-radius: 50%;
-    border: 3px solid var(--color-card-bg);
-    z-index: 1;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-  }
-
-  // Company logo positioning
-  .profile__experience-logo {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
+    border: 3px solid var(--color-bg);
     z-index: 2;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   @media (max-width: 768px) {
     &::before {
-      left: -1.25rem;
+      left: -1.5rem;
+    }
+    
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  // Company logo positioning
+  .profile__experience-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    margin-left: -4rem;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+      width: 40px;
+      height: 40px;
+      margin-left: -3rem;
+    }
+  }
+  // Content wrapper - now uses grid for two columns
+  .profile__experience-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: start;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
   }
 
-  .profile__experience-date,
+  // Left column with basic info
+  .profile__experience-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  // Date and location on same line
+  .profile__experience-date-location {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+  }
+
+  .profile__experience-date {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &::after {
+      // margin: 0 0.5rem;
+      color: var(--color-border);
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+
   .profile__experience-location {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-muted);
     transition: color 0.3s ease;
+
+    &::before {
+      content: '📍';
+      margin-right: 0.25rem;
+    }
   }
 
   .profile__experience-role {
     font-weight: 600;
-    color: var(--color-primary);
-    font-size: 1.05rem;
+    color: var(--color-text);
+    font-size: 1.15rem;
+    margin: 0.25rem 0;
     transition: color 0.3s ease;
   }
 
   .profile__experience-company {
-    font-weight: 500;
-    color: var(--color-text);
-    font-size: 1.01rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
     transition: color 0.3s ease;
   }
 
+  // Right column with description
   .profile__experience-desc {
-    font-size: 0.97rem;
+    font-size: 0.95rem;
     color: var(--color-muted);
-    margin-top: 0.2rem;
-    padding-right: 3rem; // Make room for the logo
+    line-height: 1.6;
     transition: color 0.3s ease;
-
-    @media (max-width: 768px) {
-      padding-right: 0;
-    }
   }
 }
 

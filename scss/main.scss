@@ -396,25 +396,9 @@ body {
       left: -1.5rem;
     }
     
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;    gap: 1rem;
   }
 
-  // Company logo positioning
-  .profile__experience-logo {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    margin-left: -4rem;
-    z-index: 1;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
-    @media (max-width: 768px) {
-      width: 40px;
-      height: 40px;
-      margin-left: -3rem;
-    }
-  }
   // Content wrapper - now uses grid for two columns
   .profile__experience-content {
     display: grid;
@@ -433,6 +417,28 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+  }
+
+  // Company info section with logo
+  .profile__experience-company-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.5rem 0;
+  }
+
+  .profile__experience-company-logo {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .profile__experience-company-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
   }
   // Date and location on same line
   .profile__experience-date-location {
@@ -478,21 +484,20 @@ body {
       margin-right: 0.25rem;
     }
   }
-
   .profile__experience-role {
     font-weight: 600;
     color: var(--color-text);
-    font-size: 1.15rem;
-    margin: 0.25rem 0;
+    font-size: 1.1rem;
     transition: color 0.3s ease;
+    line-height: 1.2;
   }
 
   .profile__experience-company {
     font-weight: 600;
     color: var(--color-primary);
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;
     transition: color 0.3s ease;
+    line-height: 1.2;
   }
 
   // Right column with description

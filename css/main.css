@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: "DM Sans", Arial, sans-serif;
   background: #f8f8fb;
   color: #222;
   line-height: 1.5;
@@ -383,6 +383,17 @@ body {
   .profile__main {
     padding: 0.5rem;
   }
+}
+h1, h2, h3, h4, h5, h6,
+.profile__section-title,
+.profile__skills-title,
+.profile__name,
+.profile__role,
+.profile__project-title,
+.profile__education-title,
+.profile__experience-role,
+.profile__experience-company {
+  font-family: "Outfit", Arial, sans-serif;
 }
 
 /*# sourceMappingURL=main.css.map */

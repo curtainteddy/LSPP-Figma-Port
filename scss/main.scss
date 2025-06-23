@@ -6,7 +6,9 @@ $color-accent: #f3f3f7;
 $color-border: #e0e0e0;
 $color-link: #4f8cff;
 $color-muted: #888;
-$font-main: 'Inter', Arial, sans-serif;
+$font-outfit: 'Outfit', Arial, sans-serif;
+$font-dmsans: 'DM Sans', Arial, sans-serif;
+$font-main: $font-dmsans;
 $sidebar-width: 340px;
 
 // BEM mixin
@@ -400,4 +402,17 @@ body {
   .profile__main {
     padding: 0.5rem;
   }
+}
+
+// Headings and key titles in Outfit
+h1, h2, h3, h4, h5, h6,
+.profile__section-title,
+.profile__skills-title,
+.profile__name,
+.profile__role,
+.profile__project-title,
+.profile__education-title,
+.profile__experience-role,
+.profile__experience-company {
+  font-family: $font-outfit;
 } 

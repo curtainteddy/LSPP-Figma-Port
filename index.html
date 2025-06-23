@@ -9,6 +9,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Dark Mode Toggle -->
+  <input type="checkbox" id="dark-mode-toggle" />
+  <label for="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+    <span class="sun-icon">☀</span>
+    <span class="toggle-slider"></span>
+    <span class="moon-icon">🌙</span>
+  </label>
+
   <main class="profile" aria-label="Chiara Bianchi Portfolio">
     <aside class="profile__sidebar" aria-label="Sidebar">
       <div class="profile__photo-wrapper">
@@ -62,7 +70,7 @@
         <h2 class="profile__section-title">Latest Projects</h2>
         <div class="profile__projects-list">
           <article class="profile__project-card">
-            <img src="assets/latest-figmaproject.png" alt="Figma project icon" class="profile__project-icon" width="40" height="40" />
+            <img src="assets/latest-figmaproject.png" alt="Figma project icon" class="profile__project-icon" width="44" height="44" />
             <div class="profile__project-content">
               <h3 class="profile__project-title">Powerful Design System</h3>
               <p class="profile__project-desc">Figma UI Kit and Design System targeting a wide variety of use cases.</p>
@@ -70,7 +78,7 @@
             </div>
           </article>
           <article class="profile__project-card">
-            <img src="assets/latest-modernwebsiteproject.png" alt="Modern Website project icon" class="profile__project-icon" width="40" height="40" />
+            <img src="assets/latest-modernwebsiteproject.png" alt="Modern Website project icon" class="profile__project-icon" width="44" height="44" />
             <div class="profile__project-content">
               <h3 class="profile__project-title">Modern Website</h3>
               <p class="profile__project-desc">Powerful website + dashboard template for your next Chakra UI project.</p>
@@ -80,62 +88,100 @@
         </div>
       </section>
       <section class="profile__experience" aria-label="Experience">
-        <h2 class="profile__section-title">Experience</h2>
-        <ul class="profile__experience-list">
-          <li class="profile__experience-item">
-              <span class="profile__experience-date">Jul 20 – Jan 2022</span>
-              <span class="profile__experience-location">Cupertino</span>
-              <img src="assets/experience-apple.png" alt="Apple logo" class="profile__experience-logo" width="32" height="32" />
-            <span class="profile__experience-role">Product designer</span>
-            <span class="profile__experience-company">Apple</span>
-            <p class="profile__experience-desc">Omnis minima inventore minus. At ut incidunt. Aut fugiat culpa illum optio dolorum aut maxime quas. Laborum incidunt enim consectetur perspiciatis. Dolore ullam odit impedit doloremque recusandae facilis est, etc.</p>
-          </li>
-          <li class="profile__experience-item">
-              <span class="profile__experience-date">Oct 2015 – Mar 2020</span>
-              <span class="profile__experience-location">Austin</span>
-              <img src="assets/experience-tesla.png" alt="Tesla logo" class="profile__experience-logo" width="32" height="32" />
-            <span class="profile__experience-role">UX designer</span>
-            <span class="profile__experience-company">Tesla</span>
-            <p class="profile__experience-desc">Commodi suscipit aut sit qui assumenda earum aperiam coaeccati voluptates. Fuga quas aut soluta nostrum et beatae. Maiores reprehenderit quibusdam autem enim ut in possimus ad.</p>
-          </li>
-          <li class="profile__experience-item">
-              <span class="profile__experience-date">Sep 2014 – Aug 2015</span>
-              <span class="profile__experience-location">Mountain View</span>
-              <img src="assets/experience-google.png" alt="Google logo" class="profile__experience-logo" width="32" height="32" />
-            <span class="profile__experience-role">Design system architect</span>
-            <span class="profile__experience-company">Google</span>
-            <p class="profile__experience-desc">Ut molestias animi. Neque voluptate velit corporis adipisci voluptate et qui sed neque. Inventore eos non. Qui eveniet quo incidunt nemo.</p>
-          </li>
-          <li class="profile__experience-item">
-              <span class="profile__experience-date">Sep 2010 – Jul 2013</span>
-              <span class="profile__experience-location">Berlin</span>
-              <img src="assets/experience-vectornator.png" alt="Vectornator logo" class="profile__experience-logo" width="32" height="32" />
-            <span class="profile__experience-role">Design system architect</span>
-            <span class="profile__experience-company">Vectornator</span>
-            <p class="profile__experience-desc">Non in fugiat ut consequatur debitis! Consequuntur impedit modi asperiores impedit ut et aut eligendi doloremque. Fugiat laborum ducimus hic tempore velit. Sed vitae et corrupti omnis temporibus. Unde voluptas et rerum aspernatur autem assumenda animi fugiat. Dignissimos velit voluptatem similique accusantium eveniet voluptatum.</p>
+        <h2 class="profile__section-title">Experience</h2>        <ul class="profile__experience-list">          <li class="profile__experience-item">
+            <div class="profile__experience-content">
+              <div class="profile__experience-info">
+                <div class="profile__experience-date-location">
+                  <span class="profile__experience-date">Jul 20 – Jan 2022</span>
+                  <span class="profile__experience-location">Cupertino</span>
+                </div>
+                <div class="profile__experience-company-info">
+                  <img src="assets/experience-apple.png" alt="Apple logo" class="profile__experience-company-logo" width="40" height="40" />
+                  <div class="profile__experience-company-details">
+                    <span class="profile__experience-role">Product designer</span>
+                    <span class="profile__experience-company">Apple</span>
+                  </div>
+                </div>
+              </div>
+              <p class="profile__experience-desc">Omnis minima inventore minus. At ut incidunt. Aut fugiat culpa illum optio dolorum aut maxime quas. Laborum incidunt enim consectetur perspiciatis. Dolore ullam odit impedit doloremque recusandae facilis est, etc.</p>
+            </div>
+          </li>          <li class="profile__experience-item">
+            <div class="profile__experience-content">
+              <div class="profile__experience-info">
+                <div class="profile__experience-date-location">
+                  <span class="profile__experience-date">Oct 2015 – Mar 2020</span>
+                  <span class="profile__experience-location">Austin</span>
+                </div>
+                <div class="profile__experience-company-info">
+                  <img src="assets/experience-tesla.png" alt="Tesla logo" class="profile__experience-company-logo" width="40" height="40" />
+                  <div class="profile__experience-company-details">
+                    <span class="profile__experience-role">UX designer</span>
+                    <span class="profile__experience-company">Tesla</span>
+                  </div>
+                </div>
+              </div>
+              <p class="profile__experience-desc">Commodi suscipit aut sit qui assumenda earum aperiam coaeccati voluptates. Fuga quas aut soluta nostrum et beatae. Maiores reprehenderit quibusdam autem enim ut in possimus ad.</p>
+            </div>
+          </li>          <li class="profile__experience-item">
+            <div class="profile__experience-content">
+              <div class="profile__experience-info">
+                <div class="profile__experience-date-location">
+                  <span class="profile__experience-date">Sep 2014 – Aug 2015</span>
+                  <span class="profile__experience-location">Mountain View</span>
+                </div>
+                <div class="profile__experience-company-info">
+                  <img src="assets/experience-google.png" alt="Google logo" class="profile__experience-company-logo" width="40" height="40" />
+                  <div class="profile__experience-company-details">
+                    <span class="profile__experience-role">Design system architect</span>
+                    <span class="profile__experience-company">Google</span>
+                  </div>
+                </div>
+              </div>
+              <p class="profile__experience-desc">Ut molestias animi. Neque voluptate velit corporis adipisci voluptate et qui sed neque. Inventore eos non. Qui eveniet quo incidunt nemo.</p>
+            </div>
+          </li>          <li class="profile__experience-item">
+            <div class="profile__experience-content">
+              <div class="profile__experience-info">
+                <div class="profile__experience-date-location">
+                  <span class="profile__experience-date">Sep 2010 – Jul 2013</span>
+                  <span class="profile__experience-location">Berlin</span>
+                </div>
+                <div class="profile__experience-company-info">
+                  <img src="assets/experience-vectornator.png" alt="Vectornator logo" class="profile__experience-company-logo" width="40" height="40" />
+                  <div class="profile__experience-company-details">
+                    <span class="profile__experience-role">Design system architect</span>
+                    <span class="profile__experience-company">Vectornator</span>
+                  </div>
+                </div>
+              </div>
+              <p class="profile__experience-desc">Non in fugiat ut consequatur debitis! Consequuntur impedit modi asperiores impedit ut et aut eligendi doloremque. Fugit laborum ducimus hic tempore velit. Sed vitae et corrupti omnis temporibus. Unde voluptas et rerum aspernatur autem assumenda animi fugit. Omnis laborum velit voluptatum similique accusantium eveniet voluptatem.</p>
+            </div>
           </li>
         </ul>
       </section>
       <section class="profile__education" aria-label="Education">
         <h2 class="profile__section-title">Education</h2>
-        <ul class="profile__education-list">
-          <li class="profile__education-item">
-            <img src="assets/education-memorisely.png" alt="Memorisely logo" class="profile__education-logo" width="32" height="32" />
-            <span class="profile__education-title">Build a design system</span>
-            <span class="profile__education-org">Memorisely</span>
-            <span class="profile__education-date">Oct 2021</span>
-          </li>
-          <li class="profile__education-item">
-            <img src="assets/education-uxacademy.png" alt="UX academy logo" class="profile__education-logo" width="32" height="32" />
-            <span class="profile__education-title">UX Design certificate</span>
-            <span class="profile__education-org">UX academy</span>
-            <span class="profile__education-date">Feb 2020</span>
-          </li>
-          <li class="profile__education-item">
-            <img src="assets/education-coursera.png" alt="Coursera logo" class="profile__education-logo" width="32" height="32" />
-            <span class="profile__education-title">Usera reasearch course</span>
-            <span class="profile__education-org">Coursera</span>
-            <span class="profile__education-date">Dec 2019</span>
+        <ul class="profile__education-list">          <li class="profile__education-item">
+            <img src="assets/education-memorisely.png" alt="Memorisely logo" class="profile__education-logo" width="36" height="36" />
+            <div class="profile__education-details">
+              <span class="profile__education-title">Build a design system</span>
+              <span class="profile__education-org">Memorisely</span>
+              <span class="profile__education-date">Oct 2021</span>
+            </div>
+          </li>          <li class="profile__education-item">
+            <img src="assets/education-uxacademy.png" alt="UX academy logo" class="profile__education-logo" width="36" height="36" />
+            <div class="profile__education-details">
+              <span class="profile__education-title">UX Design certificate</span>
+              <span class="profile__education-org">UX academy</span>
+              <span class="profile__education-date">Feb 2020</span>
+            </div>
+          </li>          <li class="profile__education-item">
+            <img src="assets/education-coursera.png" alt="Coursera logo" class="profile__education-logo" width="36" height="36" />
+            <div class="profile__education-details">
+              <span class="profile__education-title">Usera reasearch course</span>
+              <span class="profile__education-org">Coursera</span>
+              <span class="profile__education-date">Dec 2019</span>
+            </div>
           </li>
         </ul>
       </section>
@@ -175,9 +221,9 @@
           <li class="profile__tool"><img src="assets/tools-mazesquare.png" alt="Maze" class="profile__tool-icon" width="28" height="28" />Maze</li>
           <li class="profile__tool"><img src="assets/tools-tools-splinesquare.png" alt="Spline" class="profile__tool-icon" width="28" height="28" />Spline</li>
           <li class="profile__tool"><img src="assets/tools-zeplinsquare.png" alt="Zeplin" class="profile__tool-icon" width="28" height="28" />Zeplin</li>
-          <li class="profile__tool"><img src="assets/tools-vectornatorcircle.png" alt="Vectornator" class="profile__tool-icon" width="28" height="28" />Vectornator</li>
+          <li class="profile__tool"><img src="assets/tools-vectornatorcircle.png" alt="Vectornator" class="profile__tool-icon" width="28" height="28" />Vector</li>
           <li class="profile__tool"><img src="assets/tools-rotatocircle.png" alt="Rotato" class="profile__tool-icon" width="28" height="28" />Rotato</li>
-          <li class="profile__tool"><img src="assets/tools-vscodecircle.png" alt="VS Code" class="profile__tool-icon" width="28" height="28" />VS Code</li>
+          <li class="profile__tool"><img src="assets/tools-vscodecircle.png" alt="VS Code" class="profile__tool-icon" width="28" height="28" />VSCode</li>
           <li class="profile__tool"><img src="assets/tools-xcodecircle.png" alt="Xcode" class="profile__tool-icon" width="28" height="28" />Xcode</li>
           <li class="profile__tool"><img src="assets/tools-notioncircle.png" alt="Notion" class="profile__tool-icon" width="28" height="28" />Notion</li>
         </ul>

@@ -60,7 +60,7 @@ body {
 .profile__info {
   width: 100%;
   text-align: center;
-  padding: 1.5rem 1.5rem 0 1.5rem;
+  padding: 1.5rem 2rem 0 2rem;
 }
 @media (max-width: 900px) {
   .profile__info {
@@ -103,7 +103,8 @@ body {
   align-items: center;
   margin-bottom: 0.5rem;
 }
-.profile__contacts li a, .profile__contacts li span {
+.profile__contacts li a,
+.profile__contacts li span {
   color: #222;
   text-decoration: none;
   font-size: 1rem;
@@ -112,7 +113,6 @@ body {
 
 .profile__socials {
   margin-bottom: 1.5rem;
-  padding: 0 1.5rem;
 }
 .profile__socials ul {
   list-style: none;
@@ -144,7 +144,7 @@ body {
 }
 
 .profile__languages {
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  padding: 0 2rem 1.5rem 0rem;
 }
 .profile__languages ul {
   list-style: none;
@@ -235,6 +235,11 @@ body {
 .profile__project-link {
   color: #4f8cff;
   font-size: 0.97rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.profile__project-link:hover {
   text-decoration: underline;
 }
 
@@ -291,18 +296,28 @@ body {
   background: #fff;
   border-radius: 12px;
   padding: 1rem 1.2rem;
-  min-width: 180px;
-  flex: 1 1 180px;
+  flex: 1 1 calc(50% - 0.5rem);
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  align-items: center;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  .profile__education-item {
+    flex: 1 1 100%;
+  }
 }
 .profile__education-item .profile__education-logo {
   width: 32px;
   height: 32px;
   background: #f3f3f7;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+.profile__education-item .profile__education-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 .profile__education-item .profile__education-title {
   font-weight: 600;
@@ -382,7 +397,12 @@ body {
     padding: 0.5rem;
   }
 }
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .profile__section-title,
 .profile__skills-title,
 .profile__name,

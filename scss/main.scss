@@ -78,6 +78,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 @include bem('profile', 'photo') {
   width: 100%;
   height: 100%;
@@ -88,27 +89,31 @@ body {
 @include bem('profile', 'info') {
   width: 100%;
   text-align: center;
-  padding: 1.5rem 1.5rem 0 1.5rem;
+  padding: 1.5rem 2rem 0 2rem;
   @media (max-width: 900px) {
     text-align: left;
     margin-left: 1.5rem;
   }
 }
+
 @include bem('profile', 'name') {
   font-size: 1.7rem;
   font-weight: 700;
   color: $color-text;
 }
+
 @include bem('profile', 'role') {
   font-size: 1.1rem;
   color: $color-primary;
   font-weight: 500;
   margin-bottom: 1rem;
 }
+
 @include bem('profile', 'quote') {
   font-size: 1rem;
   color: $color-muted;
   margin: 1rem 0 1.5rem 0;
+
   cite {
     display: block;
     font-size: 0.9rem;
@@ -121,11 +126,14 @@ body {
 @include bem('profile', 'contacts') {
   list-style: none;
   margin-bottom: 1.5rem;
+
   li {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
-    a, span {
+
+    a,
+    span {
       color: $color-text;
       text-decoration: none;
       font-size: 1rem;
@@ -137,21 +145,25 @@ body {
 // Socials
 @include bem('profile', 'socials') {
   margin-bottom: 1.5rem;
-  padding: 0 1.5rem;
+  // padding: 0 2rem;
+
   ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+
     li {
       display: flex;
       align-items: center;
+
       a {
         color: $color-text;
         text-decoration: none;
         font-size: 1rem;
         display: flex;
         align-items: center;
+
         .profile__social-icon {
           margin-right: 0.5rem;
         }
@@ -159,6 +171,7 @@ body {
     }
   }
 }
+
 // Social icons placeholder
 .profile__social-icon {
   width: 20px;
@@ -170,13 +183,16 @@ body {
 
 // Languages
 @include bem('profile', 'languages') {
-  padding: 0 1.5rem 1.5rem 1.5rem;
+  padding: 0 2rem 1.5rem 0rem;
+
   ul {
     list-style: none;
+
     li {
       display: flex;
       align-items: center;
       margin-bottom: 0.5rem;
+
       .profile__flag {
         width: 24px;
         height: 16px;
@@ -184,6 +200,7 @@ body {
         background: $color-border;
         display: inline-block;
       }
+
       .profile__lang-level {
         color: $color-muted;
         font-size: 0.9rem;
@@ -221,16 +238,18 @@ body {
     gap: 1rem;
   }
 }
+
 @include bem('profile', 'project-card') {
   background: #fff;
   border-radius: 16px;
   padding: 1.2rem 1.5rem;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start; // Align items to the start for icon and text
   gap: 1rem;
   min-width: 260px;
   flex: 1 1 260px;
 }
+
 @include bem('profile', 'project-icon') {
   width: 40px;
   height: 40px;
@@ -238,30 +257,41 @@ body {
   border-radius: 12px;
   flex-shrink: 0;
 }
+
 @include bem('profile', 'project-content') {
   flex: 1;
 }
+
 @include bem('profile', 'project-title') {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.2rem;
 }
+
 @include bem('profile', 'project-desc') {
   font-size: 0.98rem;
   color: $color-muted;
   margin-bottom: 0.3rem;
 }
+
 @include bem('profile', 'project-link') {
   color: $color-link;
   font-size: 0.97rem;
-  text-decoration: underline;
+  text-decoration: none; // Remove underline by default
+  display: flex;
+  align-items: center; // Align link icon and text vertically
+  &:hover {
+    text-decoration: underline; // Add underline on hover
+  }
 }
+
 
 // Experience
 @include bem('profile', 'experience-list') {
   list-style: none;
   margin-bottom: 2rem;
 }
+
 @include bem('profile', 'experience-item') {
   background: #fff;
   border-radius: 12px;
@@ -270,21 +300,25 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+
   .profile__experience-date,
   .profile__experience-location {
     font-size: 0.95rem;
     color: $color-muted;
   }
+
   .profile__experience-role {
     font-weight: 600;
     color: $color-primary;
     font-size: 1.05rem;
   }
+
   .profile__experience-company {
     font-weight: 500;
     color: $color-text;
     font-size: 1.01rem;
   }
+
   .profile__experience-desc {
     font-size: 0.97rem;
     color: $color-muted;
@@ -304,31 +338,47 @@ body {
     gap: 0.7rem;
   }
 }
+
 @include bem('profile', 'education-item') {
   background: #fff;
   border-radius: 12px;
   padding: 1rem 1.2rem;
-  min-width: 180px;
-  flex: 1 1 180px;
+  // min-width: 180px; // Adjusted for better responsiveness with flex
+  flex: 1 1 calc(50% - 0.5rem); // Two columns, accounting for gap
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
+  align-items: center; // Align logo and text horizontally
+  gap: 1rem; // Gap between logo and text content
+
+  @media (max-width: 768px) {
+    flex: 1 1 100%; // Single column on smaller screens
+  }
+
   .profile__education-logo {
     width: 32px;
     height: 32px;
     background: $color-accent;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
+    border-radius: 50%; // Make it circular
+    flex-shrink: 0; // Prevent logo from shrinking
+    margin-bottom: 0; // Remove bottom margin, handled by gap
   }
+
+  .profile__education-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem; // Space between title, org, date
+  }
+
   .profile__education-title {
     font-weight: 600;
     color: $color-text;
     font-size: 1.05rem;
   }
+
   .profile__education-org {
     color: $color-muted;
     font-size: 0.97rem;
   }
+
   .profile__education-date {
     color: $color-muted;
     font-size: 0.95rem;
@@ -339,17 +389,20 @@ body {
 @include bem('profile', 'skills-group') {
   margin-bottom: 1.2rem;
 }
+
 @include bem('profile', 'skills-title') {
   font-size: 1.05rem;
   font-weight: 600;
   color: $color-primary;
   margin-bottom: 0.5rem;
 }
+
 @include bem('profile', 'skills-list') {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
+
   li {
     background: $color-accent;
     color: $color-text;
@@ -367,6 +420,7 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
 }
+
 @include bem('profile', 'tool') {
   background: #fff;
   border-radius: 12px;
@@ -376,6 +430,7 @@ body {
   display: flex;
   align-items: center;
   gap: 0.7rem;
+
   .profile__tool-icon {
     width: 28px;
     height: 28px;
@@ -395,13 +450,19 @@ body {
     margin: 0 0 1rem 0;
     padding: 1rem;
   }
+
   .profile__main {
     padding: 0.5rem;
   }
 }
 
 // Headings and key titles in Outfit
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .profile__section-title,
 .profile__skills-title,
 .profile__name,
@@ -411,4 +472,4 @@ h1, h2, h3, h4, h5, h6,
 .profile__experience-role,
 .profile__experience-company {
   font-family: $font-outfit;
-} 
+}

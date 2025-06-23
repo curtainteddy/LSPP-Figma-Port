@@ -584,16 +584,25 @@ body {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 0.9rem;
 
   li {
-    background: var(--color-accent);
+    background: var(--color-card-bg);
     color: var(--color-text);
-    border-radius: 8px;
-    padding: 0.4rem 1rem;
-    font-size: 0.97rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 0.7rem 1.3rem;
+    font-size: 1rem;
     font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background: var(--color-accent);
+      border-color: var(--color-primary);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
   }
 }
 
@@ -602,27 +611,39 @@ body {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.9rem;
 }
 
 @include bem('profile', 'tool') {
   background: var(--color-card-bg);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
-  padding: 1rem 1.2rem;
-  min-width: 120px;
-  flex: 1 1 120px;
+  padding: 0.8rem 1.4rem;
+  min-width: 140px;
+  flex: 1 1 140px;
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  color: var(--color-text);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background: var(--color-accent);
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
 
   .profile__tool-icon {
     width: 28px;
     height: 28px;
     background: var(--color-accent);
     border-radius: 8px;
-    margin-right: 0.5rem;
+    margin-right: 0;
+    flex-shrink: 0;
     display: inline-block;
     transition: background-color 0.3s ease;
   }

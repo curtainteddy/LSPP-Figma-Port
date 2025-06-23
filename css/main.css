@@ -14,7 +14,7 @@ body {
 .profile {
   display: flex;
   min-height: 100vh;
-  background: #f8f8fb;
+  background: #fff;
 }
 @media (max-width: 900px) {
   .profile {
@@ -24,8 +24,8 @@ body {
 
 .profile__sidebar {
   width: 340px;
-  background: #fff;
-  padding: 2rem 1.5rem;
+  background: #f8f8fb;
+  padding: 0;
   border-radius: 0;
   margin: 0 1.5rem 0 0;
   display: flex;
@@ -60,6 +60,7 @@ body {
 .profile__info {
   width: 100%;
   text-align: center;
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 @media (max-width: 900px) {
   .profile__info {
@@ -111,6 +112,7 @@ body {
 
 .profile__socials {
   margin-bottom: 1.5rem;
+  padding: 0 1.5rem;
 }
 .profile__socials ul {
   list-style: none;
@@ -141,6 +143,9 @@ body {
   border-radius: 50%;
 }
 
+.profile__languages {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
 .profile__languages ul {
   list-style: none;
 }

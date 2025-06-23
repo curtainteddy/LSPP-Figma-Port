@@ -43,7 +43,7 @@ body {
 @include bem('profile') {
   display: flex;
   min-height: 100vh;
-  background: $color-bg;
+  background: #fff;
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -53,8 +53,8 @@ body {
 // Sidebar
 @include bem('profile', 'sidebar') {
   width: $sidebar-width;
-  background: #fff;
-  padding: 2rem 1.5rem;
+  background: $color-bg;
+  padding: 0;
   border-radius: 0;
   margin: 0 1.5rem 0 0;
   display: flex;
@@ -88,6 +88,7 @@ body {
 @include bem('profile', 'info') {
   width: 100%;
   text-align: center;
+  padding: 1.5rem 1.5rem 0 1.5rem;
   @media (max-width: 900px) {
     text-align: left;
     margin-left: 1.5rem;
@@ -136,6 +137,7 @@ body {
 // Socials
 @include bem('profile', 'socials') {
   margin-bottom: 1.5rem;
+  padding: 0 1.5rem;
   ul {
     list-style: none;
     display: flex;
@@ -168,6 +170,7 @@ body {
 
 // Languages
 @include bem('profile', 'languages') {
+  padding: 0 1.5rem 1.5rem 1.5rem;
   ul {
     list-style: none;
     li {

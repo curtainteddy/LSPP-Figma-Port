@@ -11,6 +11,30 @@ $font-dmsans: 'DM Sans', Arial, sans-serif;
 $font-main: $font-dmsans;
 $sidebar-width: 340px;
 
+// CSS Custom Properties for theming
+:root {
+  --color-primary: #{$color-primary};
+  --color-bg: #{$color-bg};
+  --color-text: #{$color-text};
+  --color-accent: #{$color-accent};
+  --color-border: #{$color-border};
+  --color-link: #{$color-link};
+  --color-muted: #{$color-muted};
+  --color-card-bg: #fff;
+  --color-sidebar-bg: #{$color-bg};
+}
+
+// Dark theme colors
+#dark-mode-toggle:checked ~ * {
+  --color-bg: #1a1a1a;
+  --color-text: #ffffff;
+  --color-accent: #2a2a2a;
+  --color-border: #444;
+  --color-muted: #aaa;
+  --color-card-bg: #2a2a2a;
+  --color-sidebar-bg: #1a1a1a;
+}
+
 // BEM mixin
 @mixin bem($block, $element: null, $modifier: null) {
   $selector: $block;
@@ -34,16 +58,18 @@ $sidebar-width: 340px;
 
 body {
   font-family: $font-main;
-  background: $color-bg;
-  color: $color-text;
+  background: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 // Main layout
 @include bem('profile') {
   display: flex;
   min-height: 100vh;
-  background: #fff;
+  background: var(--color-card-bg);
+  transition: background-color 0.3s ease;
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -53,13 +79,14 @@ body {
 // Sidebar
 @include bem('profile', 'sidebar') {
   width: $sidebar-width;
-  background: $color-bg;
+  background: var(--color-sidebar-bg);
   padding: 0;
   border-radius: 0;
   margin: 0 1.5rem 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: background-color 0.3s ease;
   @media (max-width: 900px) {
     width: auto;
     margin: 0;
@@ -73,10 +100,11 @@ body {
   border-radius: 0;
   overflow: visible;
   margin: 0 0 1.5rem 0;
-  background: $color-accent;
+  background: var(--color-accent);
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.3s ease;
 }
 
 @include bem('profile', 'photo') {
@@ -99,26 +127,30 @@ body {
 @include bem('profile', 'name') {
   font-size: 1.7rem;
   font-weight: 700;
-  color: $color-text;
+  color: var(--color-text);
+  transition: color 0.3s ease;
 }
 
 @include bem('profile', 'role') {
   font-size: 1.1rem;
-  color: $color-primary;
+  color: var(--color-primary);
   font-weight: 500;
   margin-bottom: 1rem;
+  transition: color 0.3s ease;
 }
 
 @include bem('profile', 'quote') {
   font-size: 1rem;
-  color: $color-muted;
+  color: var(--color-muted);
   margin: 1rem 0 1.5rem 0;
+  transition: color 0.3s ease;
 
   cite {
     display: block;
     font-size: 0.9rem;
-    color: $color-border;
+    color: var(--color-border);
     margin-top: 0.5rem;
+    transition: color 0.3s ease;
   }
 }
 
@@ -134,10 +166,11 @@ body {
 
     a,
     span {
-      color: $color-text;
+      color: var(--color-text);
       text-decoration: none;
       font-size: 1rem;
       margin-left: 0.5rem;
+      transition: color 0.3s ease;
     }
   }
 }
@@ -158,11 +191,12 @@ body {
       align-items: center;
 
       a {
-        color: $color-text;
+        color: var(--color-text);
         text-decoration: none;
         font-size: 1rem;
         display: flex;
         align-items: center;
+        transition: color 0.3s ease;
 
         .profile__social-icon {
           margin-right: 0.5rem;
@@ -177,8 +211,9 @@ body {
   width: 20px;
   height: 20px;
   display: inline-block;
-  background: $color-border;
+  background: var(--color-border);
   border-radius: 50%;
+  transition: background-color 0.3s ease;
 }
 
 // Languages
@@ -197,14 +232,16 @@ body {
         width: 24px;
         height: 16px;
         margin-right: 0.5rem;
-        background: $color-border;
+        background: var(--color-border);
         display: inline-block;
+        transition: background-color 0.3s ease;
       }
 
       .profile__lang-level {
-        color: $color-muted;
+        color: var(--color-muted);
         font-size: 0.9rem;
         margin-left: 0.5rem;
+        transition: color 0.3s ease;
       }
     }
   }
@@ -224,7 +261,8 @@ body {
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 1.2rem;
-  color: $color-text;
+  color: var(--color-text);
+  transition: color 0.3s ease;
 }
 
 // Projects
@@ -240,7 +278,7 @@ body {
 }
 
 @include bem('profile', 'project-card') {
-  background: #fff;
+  background: var(--color-card-bg);
   border-radius: 16px;
   padding: 1.2rem 1.5rem;
   display: flex;
@@ -248,14 +286,16 @@ body {
   gap: 1rem;
   min-width: 260px;
   flex: 1 1 260px;
+  transition: background-color 0.3s ease;
 }
 
 @include bem('profile', 'project-icon') {
   width: 40px;
   height: 40px;
-  background: $color-accent;
+  background: var(--color-accent);
   border-radius: 12px;
   flex-shrink: 0;
+  transition: background-color 0.3s ease;
 }
 
 @include bem('profile', 'project-content') {
@@ -266,63 +306,132 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.2rem;
+  color: var(--color-text);
+  transition: color 0.3s ease;
 }
 
 @include bem('profile', 'project-desc') {
   font-size: 0.98rem;
-  color: $color-muted;
+  color: var(--color-muted);
   margin-bottom: 0.3rem;
+  transition: color 0.3s ease;
 }
 
 @include bem('profile', 'project-link') {
-  color: $color-link;
+  color: var(--color-link);
   font-size: 0.97rem;
   text-decoration: none; // Remove underline by default
   display: flex;
   align-items: center; // Align link icon and text vertically
+  transition: color 0.3s ease;
   &:hover {
     text-decoration: underline; // Add underline on hover
   }
 }
 
 
-// Experience
+// Experience Timeline
 @include bem('profile', 'experience-list') {
   list-style: none;
   margin-bottom: 2rem;
+  position: relative;
+  padding-left: 2rem;
+
+  // Timeline line
+  &::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 2rem;
+    bottom: 2rem;
+    width: 2px;
+    background: var(--color-border);
+    transition: background-color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: 1.5rem;
+    
+    &::before {
+      left: 0.75rem;
+    }
+  }
 }
 
 @include bem('profile', 'experience-item') {
-  background: #fff;
+  background: var(--color-card-bg);
   border-radius: 12px;
   padding: 1rem 1.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  position: relative;
+  transition: background-color 0.3s ease;
+
+  // Timeline dot
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    border: 3px solid var(--color-card-bg);
+    z-index: 1;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  // Company logo positioning
+  .profile__experience-logo {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    &::before {
+      left: -1.25rem;
+    }
+  }
 
   .profile__experience-date,
   .profile__experience-location {
     font-size: 0.95rem;
-    color: $color-muted;
+    color: var(--color-muted);
+    transition: color 0.3s ease;
   }
 
   .profile__experience-role {
     font-weight: 600;
-    color: $color-primary;
+    color: var(--color-primary);
     font-size: 1.05rem;
+    transition: color 0.3s ease;
   }
 
   .profile__experience-company {
     font-weight: 500;
-    color: $color-text;
+    color: var(--color-text);
     font-size: 1.01rem;
+    transition: color 0.3s ease;
   }
 
   .profile__experience-desc {
     font-size: 0.97rem;
-    color: $color-muted;
+    color: var(--color-muted);
     margin-top: 0.2rem;
+    padding-right: 3rem; // Make room for the logo
+    transition: color 0.3s ease;
+
+    @media (max-width: 768px) {
+      padding-right: 0;
+    }
   }
 }
 
@@ -340,7 +449,7 @@ body {
 }
 
 @include bem('profile', 'education-item') {
-  background: #fff;
+  background: var(--color-card-bg);
   border-radius: 12px;
   padding: 1rem 1.2rem;
   // min-width: 180px; // Adjusted for better responsiveness with flex
@@ -348,6 +457,7 @@ body {
   display: flex;
   align-items: center; // Align logo and text horizontally
   gap: 1rem; // Gap between logo and text content
+  transition: background-color 0.3s ease;
 
   @media (max-width: 768px) {
     flex: 1 1 100%; // Single column on smaller screens
@@ -356,10 +466,11 @@ body {
   .profile__education-logo {
     width: 32px;
     height: 32px;
-    background: $color-accent;
+    background: var(--color-accent);
     border-radius: 50%; // Make it circular
     flex-shrink: 0; // Prevent logo from shrinking
     margin-bottom: 0; // Remove bottom margin, handled by gap
+    transition: background-color 0.3s ease;
   }
 
   .profile__education-details {
@@ -370,18 +481,21 @@ body {
 
   .profile__education-title {
     font-weight: 600;
-    color: $color-text;
+    color: var(--color-text);
     font-size: 1.05rem;
+    transition: color 0.3s ease;
   }
 
   .profile__education-org {
-    color: $color-muted;
+    color: var(--color-muted);
     font-size: 0.97rem;
+    transition: color 0.3s ease;
   }
 
   .profile__education-date {
-    color: $color-muted;
+    color: var(--color-muted);
     font-size: 0.95rem;
+    transition: color 0.3s ease;
   }
 }
 
@@ -393,8 +507,9 @@ body {
 @include bem('profile', 'skills-title') {
   font-size: 1.05rem;
   font-weight: 600;
-  color: $color-primary;
+  color: var(--color-primary);
   margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
 }
 
 @include bem('profile', 'skills-list') {
@@ -404,12 +519,13 @@ body {
   gap: 0.7rem;
 
   li {
-    background: $color-accent;
-    color: $color-text;
+    background: var(--color-accent);
+    color: var(--color-text);
     border-radius: 8px;
     padding: 0.4rem 1rem;
     font-size: 0.97rem;
     font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
@@ -422,7 +538,7 @@ body {
 }
 
 @include bem('profile', 'tool') {
-  background: #fff;
+  background: var(--color-card-bg);
   border-radius: 12px;
   padding: 1rem 1.2rem;
   min-width: 120px;
@@ -430,14 +546,17 @@ body {
   display: flex;
   align-items: center;
   gap: 0.7rem;
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   .profile__tool-icon {
     width: 28px;
     height: 28px;
-    background: $color-accent;
+    background: var(--color-accent);
     border-radius: 8px;
     margin-right: 0.5rem;
     display: inline-block;
+    transition: background-color 0.3s ease;
   }
 }
 
@@ -472,4 +591,70 @@ h6,
 .profile__experience-role,
 .profile__experience-company {
   font-family: $font-outfit;
+}
+
+// Dark mode toggle
+#dark-mode-toggle {
+  display: none; // Hide the checkbox
+}
+
+.dark-mode-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 50px;
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .toggle-slider {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+  }
+
+  .sun-icon,
+  .moon-icon {
+    font-size: 14px;
+    z-index: 1;
+    width: 18px;
+    text-align: center;
+  }
+
+  .sun-icon {
+    color: #ffa500;
+  }
+
+  .moon-icon {
+    color: #4a90e2;
+  }
+}
+
+// When dark mode is active
+#dark-mode-toggle:checked + .dark-mode-toggle {
+  .toggle-slider {
+    transform: translateX(30px);
+  }
 }

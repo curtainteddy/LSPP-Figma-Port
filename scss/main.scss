@@ -344,13 +344,11 @@ body {
   list-style: none;
   margin-bottom: 2rem;
   position: relative;
-  padding-left: 4rem;
-
-  // Timeline line
+  padding-left: 4rem;  // Timeline line
   &::before {
     content: '';
     position: absolute;
-    left: 2.5rem;
+    left: 1rem;
     top: 3rem;
     bottom: 0;
     width: 2px;
@@ -362,7 +360,7 @@ body {
     padding-left: 3rem;
     
     &::before {
-      left: 1.75rem;
+      left: 1rem;
       top: 2.5rem;
     }
   }
@@ -374,13 +372,11 @@ body {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1.5rem;
-  align-items: start;
-
-  // Timeline dot
+  align-items: start;  // Timeline dot
   &::before {
     content: '';
     position: absolute;
-    left: -1.75rem;
+    left: calc(1rem - 71px);
     top: 0.5rem;
     width: 12px;
     height: 12px;
@@ -390,10 +386,9 @@ body {
     z-index: 2;
     transition: background-color 0.3s ease, border-color 0.3s ease;
   }
-
   @media (max-width: 768px) {
     &::before {
-      left: -1.5rem;
+      left: calc(1rem - 6px);
     }
     
     grid-template-columns: 1fr;    gap: 1rem;
@@ -426,10 +421,9 @@ body {
     gap: 0.75rem;
     margin: 0.5rem 0;
   }
-
   .profile__experience-company-logo {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border-radius: 8px;
     flex-shrink: 0;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);

@@ -301,8 +301,8 @@ body {
 .profile__experience-list::before {
   content: "";
   position: absolute;
-  left: 2.5rem;
-  top: 3rem;
+  left: 1rem;
+  top: 1rem;
   bottom: 0;
   width: 2px;
   background: var(--color-border);
@@ -313,7 +313,7 @@ body {
     padding-left: 3rem;
   }
   .profile__experience-list::before {
-    left: 1.75rem;
+    left: 1rem;
     top: 2.5rem;
   }
 }
@@ -329,7 +329,7 @@ body {
 .profile__experience-item::before {
   content: "";
   position: absolute;
-  left: -1.75rem;
+  left: calc(1rem - 71px);
   top: 0.5rem;
   width: 12px;
   height: 12px;
@@ -345,7 +345,7 @@ body {
     gap: 1rem;
   }
   .profile__experience-item::before {
-    left: -1.5rem;
+    left: calc(1rem - 6px);
   }
 }
 .profile__experience-item .profile__experience-content {
@@ -372,8 +372,8 @@ body {
   margin: 0.5rem 0;
 }
 .profile__experience-item .profile__experience-company-logo {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 8px;
   flex-shrink: 0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
